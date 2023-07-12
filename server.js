@@ -16,7 +16,7 @@ app.use("/api/v1", router);
 
 //Starting server
 app.listen(PORT, function () {
-  console.log(`La app ha arrancado en http://localhost:${PORT}`);
+  console.log(`server running on http://localhost:${PORT}`);
 
   //Database connection
   sequelize.sync({ force: true, logging: console.log }).then(() => {

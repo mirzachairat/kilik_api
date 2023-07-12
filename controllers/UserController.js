@@ -15,7 +15,7 @@ module.exports = {
     try {
       let user = await User.create(obj);
       return res.json({
-        message: `El usuario ${user.full_name} ha sido creado con éxito`,
+        message: `user ${user.full_name} berhasil di buat`,
       });
     } catch (e) {
       return res.json({ message: e.errors[0].message });
