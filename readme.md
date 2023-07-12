@@ -1,28 +1,6 @@
-# Instrucción para inicializar proyecto en NodeJS con express y sequalize(postgres)
+# Instaltion and cofiguration NodeJS and express sequalize(postgres)
 
-## Comandos
-
-</br></br>
-
-### Creación de App
-
-</br>
-
-```
-mkdir "nombre_App"
-```
-
-```
-cd nombre_App
-```
-
-```
-npm init -y
-```
-
-</br></br>
-
-### Instalación de librerías y dependencias
+### Install Library
 
 </br>
 
@@ -33,35 +11,7 @@ npm i express sequelize pg dotenv
 ```
 npm i nodemon sequelize-cli -D
 ```
-
-</br></br>
-
-### Creación de estructura de proyecto y archivos adicionales
-
-</br>
-
-Crea las carpetas migrations, models,seeders, config
-
-```
-npx sequelize-cli init
-```
-
-Luego de ello, se deberán de reubicar las carpetas siguientes dentro de una nueva carpeta db
-
-<img src="db-img.png" alt="db-img"/>
-
-</br>
-Se crean 3 archivos adicionales en la raíz del proyecto
-
-</br>
-
-```
-touch .env .sequelizerc server.js
-```
-
-</br>
-</br>
-**.env** => Sirve para crear las variables de entorno que se utilizarán en el ./config/config.js
+**.env** => setting environment ./config/config.js
 
 ```
 
@@ -73,14 +23,7 @@ DB_DIALECT=postgres
 
 PORT=3001
 
-//En este ejemplo usamos el puerto 3001, pero se debe verificar que no este usado por otro aplicativo
-
-```
-
-</br>
-</br>
-
-**.sequelizerc** => Sirve para indicar a sequelize la ubicación (path) de nuestras archivos y carpetas (config.js, models, seeders, migrations)
+**.sequelizerc** => migration config (config.js, models, seeders, migrations)
 
 ```
 
@@ -98,7 +41,7 @@ module.exports = {
 </br>
 </br>
 
-**server.js** => Es el archivo de inicialización del servidor
+**server.js** => set server configurated
 
 ```
 
@@ -131,18 +74,6 @@ app.listen(PORT, function () {
   });
 });
 
-```
-</br>
-</br>
-Nos dirigimos a la carpeta config y renombramos el archivo que sequelize-cli creo por nosotros. El nuevo nombre tendra una extensión .js que nos permitirá ejecutar sentencias de javascript (config.js)
-
-</br>
-Aquí se hará el llamado a las correspondientes variables de entorno.
-
-</br>
-
-```
-
 require("dotenv").config();
 
 module.exports = {
@@ -152,10 +83,6 @@ module.exports = {
   host: process.env.DB_HOST || "localhost",
   dialect: process.env.DB_DIALECT || "3002",
 };
-
-```
-</br>
-Finalmente, si ingresamos a la carpeta model, se encontrará el archivo index.js creado por sequealize-cli y que sirve tanto para realizar la configuración y conexión de la BD, así como, para vincular los modelos a la misma.
 
 </br>
 
