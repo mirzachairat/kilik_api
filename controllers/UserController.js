@@ -1,4 +1,4 @@
-const { User } = require("../db/models/user");
+const { User } = require("../db/models");
 module.exports = {
   async index(req, res) {
     let users = await User.findAll();

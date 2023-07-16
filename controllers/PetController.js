@@ -1,4 +1,4 @@
-const { Pet } = require('../db/models/pet')
+const { Pet } = require('../db/models')
 
 module.exports = {
 

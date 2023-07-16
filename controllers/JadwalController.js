@@ -1,4 +1,4 @@
-const { Jadwal } = require('../db/models/jadwal');
+const { Jadwal } = require('../db/models');
 module.exports = {
   async index(req, res) {
     let jadwals = await Jadwal.findAll();
